@@ -2,7 +2,7 @@ package com.tecsup.petclinic.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+
 import static org.junit.Assert.fail;
 
 import java.util.List;
@@ -18,9 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.tecsup.petclinic.domain.Owner;
-import com.tecsup.petclinic.domain.Pet;
 import com.tecsup.petclinic.exception.OwnerNotFoundException;
-import com.tecsup.petclinic.exception.PetNotFoundException;
 
 @SpringBootTest
 @RunWith(SpringRunner.class)
@@ -32,7 +30,7 @@ public class OwnerServiceTest {
 	@Autowired
 	private OwnerService ownerService;
 
-	//@Test
+	@Test
 	public void testFindOwnerById() {
 
 		long ID = 1;
@@ -53,7 +51,7 @@ public class OwnerServiceTest {
 	/**
 	 * 
 	 */
-	//@Test
+	@Test
 	public void testFindOwnerByLastName() {
 
 		String FIND_LAST_NAME = "Franklin";
@@ -67,7 +65,7 @@ public class OwnerServiceTest {
 	/**
 	 * 
 	 */
-	//@Test
+	@Test
 	public void testFindOwnerByCity() {
 
 		String CITY = "Madison";
@@ -84,7 +82,7 @@ public class OwnerServiceTest {
 	 *  entity this annotation :
 	 *  	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	 */
-	//@Test
+	@Test
 	public void testCreateOwner() {
 
 		String OWNER_LAST_NAME = "Sanchez";
@@ -102,23 +100,5 @@ public class OwnerServiceTest {
 
 	}
 	
-	//@Test
-		public void testDeleteOwner() {
-
-			long ID = 13;
-			
-			try {
-				ownerService.delete(ID);
-			} catch (OwnerNotFoundException e) {
-				fail(e.getMessage());
-			}
-			
-			try {
-				ownerService.findById(ID);
-				assertTrue(false);
-			} catch (OwnerNotFoundException e) {
-				assertTrue(true);	
-			}
-		}
 
 }
